@@ -41,17 +41,6 @@ interface PostsDocumentData {
    */
   author: prismic.RichTextField;
   /**
-   * Content field in *posts*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: posts.content
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  content: prismic.RichTextField;
-  /**
    * banner field in *posts*
    *
    * - **Field Type**: Image
@@ -113,16 +102,6 @@ interface PostsDocumentData {
  */
 export interface PostsDocumentDataFdsafsdafsdItem {
   /**
-   * imagem field in *posts → content*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: posts.fdsafsdafsd[].imagem
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  imagem: prismic.ImageField<never>;
-  /**
    * heading field in *posts → content*
    *
    * - **Field Type**: Rich Text
@@ -142,6 +121,26 @@ export interface PostsDocumentDataFdsafsdafsdItem {
    *
    */
   body: prismic.RichTextField;
+  /**
+   * heading2 field in *posts → content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.fdsafsdafsd[].heading2
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  heading2: prismic.KeyTextField;
+  /**
+   * body2 field in *posts → content*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.fdsafsdafsd[].body2
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  body2: prismic.RichTextField;
 }
 /**
  * posts document from Prismic

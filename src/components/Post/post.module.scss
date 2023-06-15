@@ -1,0 +1,42 @@
+.postContainer {
+    // background-color: red;
+    // display: flex;
+    h1 {
+        font-size: 28px;
+        color: #F8F8F8;
+        margin-bottom: 8px;
+    }
+
+    p {
+        font-size: 18px;
+        color: #DDDDDD;
+        margin-bottom: 24px;
+    }
+
+    span {
+        font-size: 14px;
+        color: #BBBBBB;
+    }
+    margin-bottom: 48px;
+
+}
+
+.info {
+    display: flex;
+    width: auto !important;
+   
+    height: 20px;
+
+    span {
+        margin-right: 20px;
+    }
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+
+    span {
+        margin-left: 8px;
+    }
+}
