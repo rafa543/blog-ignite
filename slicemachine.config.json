@@ -1,0 +1,5 @@
+{
+  "repositoryName": "criando-projeto-do-zero-1-0",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./slices"]
+}
