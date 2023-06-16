@@ -2,7 +2,19 @@ import styles from './post.module.scss'
 import { FiCalendar } from 'react-icons/fi'
 import { FiUser } from 'react-icons/fi'
 
-export default function Post() {
+interface PostTeste {
+    uid: string;
+  first_publication_date: string | null;
+  data: {
+    title: string;
+    subtitle: string;
+    author: string;
+  };
+}
+
+export default function PostComponent(teste: PostTeste) {
+
+  console.log(teste)
   return (
     <div className={styles.postContainer}>
         <h1>Como utilizar Hooks</h1>
