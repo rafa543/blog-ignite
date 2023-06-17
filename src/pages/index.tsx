@@ -7,7 +7,7 @@ import styles from './home.module.scss';
 import Header from '../components/Header';
 import PostComponent from '../components/PostComponent';
 
-interface Post {
+export interface Post {
   uid?: string;
   first_publication_date: string | null;
   data: {
@@ -37,8 +37,8 @@ export default function Home({ posts }: PostProps) {
       <Header />
       <main className={styles.contentContainer}>
         {
-          posts.map(teste => (
-            <PostComponent teste={teste}/>
+          posts.map(post => (
+            <PostComponent post={post} key={post.uid}/>
           ))
         }
       </main>
