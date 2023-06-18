@@ -4,6 +4,8 @@ import { getPrismicClient } from '../../services/prismic';
 
 import commonStyles from '../../styles/common.module.scss';
 import styles from './post.module.scss';
+import Header from '../../components/Header';
+import { FiCalendar, FiUser } from 'react-icons/fi';
 
 interface Post {
   first_publication_date: string | null;
@@ -26,20 +28,83 @@ interface PostProps {
   post: Post;
 }
 
-// export default function Post() {
-//   // TODO
-// }
+export default function Post({ post }: PostProps) {
+  return (
+    <>
+      <Header />
+      <main className={styles.container}>
+        <div className={styles.banner}>
+          <img src={post.data.banner.url} alt="fdsfsd" />
+        </div>
+        <div>
+          <h1>{post.data.title}</h1>
+          <div className={styles.info}>
+            <div className={styles.infoItem}>
+              <FiCalendar color='#BBBBBB' />
+              <span>{post.first_publication_date}</span>
+            </div>
+            <div className={styles.infoItem}>
+              <FiUser color='#BBBBBB' />
+              <span>{post.data.author}</span>
+            </div>
+          </div>
+        </div>
+        <div className={styles.content}>
+          <div className={styles.heading}>
 
-// export const getStaticPaths = async () => {
-//   const prismic = getPrismicClient({});
-//   const posts = await prismic.getByType(TODO);
+          </div>
+        </div>
+      </main>
+    </>
+  )
+}
 
-//   // TODO
-// };
+export const getStaticPaths = async () => {
+  // const prismic = getPrismicClient({});
+  // const posts = await prismic.getByType(TODO);
 
-// export const getStaticProps = async ({params }) => {
-//   const prismic = getPrismicClient({});
-//   const response = await prismic.getByUID(TODO);
+  return {
+    paths: [],
+    fallback: 'blocking'
+  }
+};
 
-//   // TODO
-// };
+export const getStaticProps = async ({ params }) => {
+  const { slug } = params as any
+  const prismic = getPrismicClient({});
+  const response = await prismic.getByUID('posts', slug);
+  console.log(JSON.stringify(response, undefined, 2))
+
+  const post = {
+    first_publication_date: new Date(response.first_publication_date).toLocaleDateString('pt-BR', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric'
+    }),
+    data: {
+      title: response.data.title,
+      banner: {
+        url: response.data.banner.url,
+      },
+      author: response.data.author.find((author: any) => author.type === 'paragraph')?.text ?? '',
+
+      content: {
+        heading: response.data.content.map(post => {
+          return post.heading.find((heading: any) => heading.type === 'paragraph')?.text ?? ''
+        })[0],
+        body: {
+          text: response.data.content.map(post => {
+            return post.body.find((body: any) => body.type === 'paragraph')?.text ?? ''
+          })[0],
+        }
+      }
+    },
+  }
+
+  console.log("******************************")
+
+  console.log(JSON.stringify(post, undefined, 2))
+  return {
+    props: { post }
+  }
+};

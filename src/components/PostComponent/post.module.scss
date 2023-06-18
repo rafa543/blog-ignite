@@ -1,10 +1,21 @@
 .postContainer {
-    // background-color: red;
-    // display: flex;
+
+    margin-bottom: 48px;
+    cursor: pointer;
+
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+
     h1 {
         font-size: 28px;
         color: #F8F8F8;
         margin-bottom: 8px;
+
+        &:hover {
+            text-decoration: underline;
+
+        }
     }
 
     p {
@@ -17,19 +28,22 @@
         font-size: 14px;
         color: #BBBBBB;
     }
-    margin-bottom: 48px;
+
+
 
 }
+
 
 .info {
     display: flex;
     width: auto !important;
-   
+
     height: 20px;
 
     span {
         margin-right: 20px;
     }
+
 }
 
 .infoItem {

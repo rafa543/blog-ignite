@@ -1,1 +1,48 @@
-// TODO
+.container {
+    width: 100%;
+    padding: 0 20rem;
+    height: calc(100vh - 5rem);
+
+    background-color: #1A1D23;
+
+    h1 {
+        font-size: 48px;
+        color: #F8F8F8;
+        margin-bottom: 24px;
+    }
+
+    span {
+        font-size: 14px;
+        color: #BBBBBB;
+    }
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+
+    img {
+        width: 1220px;
+    }
+}
+
+.info {
+    display: flex;
+    width: auto !important;
+
+    height: 20px;
+
+    span {
+        margin-right: 20px;
+    }
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+
+    span {
+        margin-left: 8px;
+    }
+}

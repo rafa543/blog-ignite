@@ -56,12 +56,12 @@ interface PostsDocumentData {
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: posts.fdsafsdafsd[]
+   * - **API ID Path**: posts.content[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/group
    *
    */
-  fdsafsdafsd: prismic.GroupField<Simplify<PostsDocumentDataFdsafsdafsdItem>>;
+  content: prismic.GroupField<Simplify<PostsDocumentDataContentItem>>;
   /**
    * Meta Description field in *posts*
    *
@@ -100,13 +100,13 @@ interface PostsDocumentData {
  * Item in posts → content
  *
  */
-export interface PostsDocumentDataFdsafsdafsdItem {
+export interface PostsDocumentDataContentItem {
   /**
    * heading field in *posts → content*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: posts.fdsafsdafsd[].heading
+   * - **API ID Path**: posts.content[].heading
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
@@ -116,31 +116,11 @@ export interface PostsDocumentDataFdsafsdafsdItem {
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: posts.fdsafsdafsd[].body
+   * - **API ID Path**: posts.content[].body
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
   body: prismic.RichTextField;
-  /**
-   * heading2 field in *posts → content*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: posts.fdsafsdafsd[].heading2
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  heading2: prismic.KeyTextField;
-  /**
-   * body2 field in *posts → content*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: posts.fdsafsdafsd[].body2
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  body2: prismic.RichTextField;
 }
 /**
  * posts document from Prismic
@@ -164,7 +144,7 @@ declare module '@prismicio/client' {
   namespace Content {
     export type {
       PostsDocumentData,
-      PostsDocumentDataFdsafsdafsdItem,
+      PostsDocumentDataContentItem,
       PostsDocument,
       AllDocumentTypes,
     };

@@ -31,7 +31,6 @@ interface PostProps {
 }
 
 export default function Home({ posts }: PostProps) {
-  console.log(posts.map(post => console.log(post.data)));
   return (
     <>
       <Header />
@@ -49,8 +48,6 @@ export default function Home({ posts }: PostProps) {
 export const getStaticProps = async () => {
   const prismic = getPrismicClient({});
   const postsResponse = await prismic.getByType("posts");
-  // console.log(JSON.stringify(postsResponse, null, 2))
-  // console.log(postsResponse)
 
   const posts = postsResponse.results.map(post => {
     return {
@@ -76,9 +73,7 @@ export const getStaticProps = async () => {
     }
   })
 
-  console.log("********************************")
 
-  // console.log(posts)
   return {
     props: { posts }
   }
